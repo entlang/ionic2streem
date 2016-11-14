@@ -1,0 +1,36 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>
+            Mentions
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+    <ion-list>
+        <ion-item *ngFor="let mention of mentions">
+
+            <p *ngIf="mention.title">
+                <a href="{{mention.url}}" target="_blank">
+                    {{mention.title}}
+                </a>
+            </p>
+
+            <p>{{mention.timestamp | dateFormat }}</p>
+
+            <p *ngIf="mention.channel">
+                {{mention.channel.name}} {{mention.channel.location}}
+            </p>
+            
+            <p>{{mention.publisher?.name}} {{mention.publisher?.group}} {{mention.word_count}}</p>
+            <p>{{mention.excerpt}}</p>
+
+</ion-item>
+    </ion-list>
+
+    <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+        <ion-infinite-scroll-content></ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+
+</ion-content>

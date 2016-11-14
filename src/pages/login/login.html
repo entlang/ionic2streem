@@ -1,0 +1,38 @@
+<ion-content>
+
+    <div padding [@flyInBottomFast]="cloudState" id="cloud-layer">
+
+        <ion-row>
+            <ion-col>
+                <img [@flyInBottomSlow]="logoState" src="assets/images/streem_red.png"/>
+            </ion-col>
+        </ion-row>
+
+        <ion-row>
+            <ion-col>
+                <ion-list inset [@bounceInBottom]="formState">
+
+                    <ion-item>
+                        <ion-label>Username</ion-label>
+                        <ion-input [(ngModel)]="username" type="text" value=""></ion-input>
+                    </ion-item>
+
+                    <ion-item>
+                        <ion-label>Password</ion-label>
+                        <ion-input [(ngModel)]="password" type="password" value=""></ion-input>
+                    </ion-item>
+
+                </ion-list>
+            </ion-col>
+        </ion-row>
+
+        <ion-row>
+            <ion-col>
+                <button ion-button class="login-button" [@fadeIn]="loginState" (click)="login()">Login</button>
+            </ion-col>
+        </ion-row>
+
+    </div>
+
+</ion-content>
+
